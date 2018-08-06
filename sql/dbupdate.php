@@ -35,8 +35,10 @@ $fields = array(
 	),
 );
 global $ilDB;
-$ilDB->createTable($plugin_object->getPluginTableName(), $fields);
-$ilDB->addPrimaryKey($plugin_object->getPluginTableName(), array( "id" ));
+if(!$ilDB->tableExists('cld_cldh_exod_props')) {
+    $ilDB->createTable($plugin_object->getPluginTableName(), $fields);
+    $ilDB->addPrimaryKey($plugin_object->getPluginTableName(), array("id"));
+}
 ?>
 <#2>
 <?php
